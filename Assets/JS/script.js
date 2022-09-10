@@ -8,9 +8,20 @@
 </div>
 </div> */
 
+// Function for User to be able to see current date and time
+$(function(){
+    const currentTime = $('#currentTime');
+    const container = $(".container")
+    function startTimer(){
+        setInterval(function(){
+            currentTime.text(moment().format('MMM, Do, YYYY HH:mm:ss'));
+        }, 1000);
+    }
+    startTimer();
+
+})
 
 // When user lands on this app
-    // should see the current time (clock)
     // should see 9am-5pm blocks with colour blocks (past, present and future)
     // with all the previous notes
 
