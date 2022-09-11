@@ -8,6 +8,25 @@
 </div>
 </div> */
 
+function createTimeBlock(time, content =""){
+
+    const timeRow = $('<div class="row align-items-center time-row">');
+
+    const colTime = $('<div class="col-2 d-flex justify-content-center time-col-time">').text(time + ":00")
+
+    const colTextArea = $('<div class="col-8 time-col-textarea">');
+    const textArea = $(' <textarea cols="30" rows="2">').val(content)
+
+
+    colTextArea.append(textArea);
+
+    const colButton = $('<div class="col-2">')
+    const button = $('<button type="submit" class="btn btn-primary">').text("Save")
+    colButton.append(button);
+
+    return timeRow.append(colTime, colTextArea, colButton);
+}
+
 // Function for User to be able to see current date and time
 $(function(){
     const currentTime = $('#currentTime');
@@ -18,7 +37,16 @@ $(function(){
         }, 1000);
     }
     startTimer();
+    
+    
+    for (let index = 9; index < 18; index++) {
 
+        const previousNotes = "";
+        const timeBlock = createTimeBlock(index, previousNotes);
+    
+        container.append(timeBlock);
+        
+    }
 })
 
 // When user lands on this app
